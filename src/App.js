@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Route, Routes, BrowserRouter as Router}  from 'react-router-dom'
+import Documents from "./pages/Documents";
+import Home from "./pages/Home";
+import CyberSecurityTips from './pages/CyberSecurityTips'
+import AllReportedCrimes from './pages/AllReportedCrimes'
+import MyReportedCrimes from "./pages/MyReportedCrimes";
+import SocialMediaPrecautions from './pages/SocialMediaPrecautions'
+import ReportCrimePage from "./pages/ReportCrimePage";
+import LoginRegister from "./pages/LoginRegister"
+import ForgetPassword from "./pages/ForgetPassword"
+import Footer from "./components/Footer";
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/login-register" element={<LoginRegister/>}/>
+        <Route path="/documents" element={<Documents/>}/>
+        <Route path="/reset-password" element={<ForgetPassword/>}/>
+        <Route path="/my-reported-crimes" element={<MyReportedCrimes/>}/>
+        <Route path="/all-reported-crimes" element={<AllReportedCrimes/>}/>
+        <Route path="/cyber-security-tips" element={<CyberSecurityTips/>}/>
+        <Route path="/social-media-precaution" element={<SocialMediaPrecautions/>}/>
+        <Route path="/report-crime" element={<ReportCrimePage/>}/>
+      </Routes>
+    
+    </Router>
+    <Footer/>
+    </React.Fragment>
+    
   );
 }
 
